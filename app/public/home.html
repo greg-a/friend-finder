@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Friend Finder</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
+
 <body>
-    Test 1
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Friend Finder</h1>
+            <p class="lead">Answer a few questions and find compatible friends!</p>
+            <a href="/survey" class="survey-link">
+                <button type="button" class="btn btn-primary btn-lg">Start Survey</button>
+            </a>
+        </div>
+    </div>
+    <div class="links ml-5">
+        <a href="/api/friends" target="_blank">API Friends List</a>
+         | 
+        <a href="https://github.com/greg-a/friend-finder" target="_blank">Github Repo</a>
+    </div>
 </body>
+
 </html>
