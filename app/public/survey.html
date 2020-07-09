@@ -190,8 +190,17 @@
             }
             $.post("/api/friends", newFriend)
             .then(function(data){
-                console.log("data sent!");
-                console.log(data)
+                // console.log(data);
+                var friends = data;
+                for (var i = 0; i < friends.length; i++) {
+                    if (friends[i].name !== newFriend.name){
+                        for (var u = 0; u < friends[i].scores.length; u++) {
+                            var difference = []
+                            difference += abs(friends[i].scores[u] - newFriend.scores[u]);
+                            console.log(difference)
+                        }
+                    }
+                }
             })
         })
     </script>
