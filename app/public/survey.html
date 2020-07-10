@@ -8,6 +8,9 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Friend Finder</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -35,7 +38,7 @@
                 <option>5 (Strongly Agree)</option>
             </select>
             <h3><b>Question 2</b></h3>
-            <p>You like dry humor</p>
+            <p>We need to raise rabies awareness</p>
             <select class="form-control" id="q-2">
                 <option>Select One</option>
                 <option>1 (Strongly Disagree)</option>
@@ -128,8 +131,28 @@
         <button type="button" class="btn btn-primary btn-lg mt-4" id="submit-button">Submit</button>
     </form>
 
+    <div class="modal fade" id="friend-match" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">New Friend</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <img src="#" alt="friend-pic" id="friend-pic" class="img-fluid img-thumbnail" height="500px" width="500px">
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        $("#submit-button").on("click", function(event){
+        $("#submit-button").on("click", function (event) {
             event.preventDefault();
             $("#user-name").removeAttr("style");
             $("#photo-url").removeAttr("style");
@@ -149,16 +172,16 @@
                 name: $("#user-name").val().trim(),
                 photo: $("#photo-url").val().trim(),
                 scores: [
-                q1.split(" ")[0],
-                q2.split(" ")[0],
-                q3.split(" ")[0],
-                q4.split(" ")[0],
-                q5.split(" ")[0],
-                q6.split(" ")[0],
-                q7.split(" ")[0],
-                q8.split(" ")[0],
-                q9.split(" ")[0],
-                q10.split(" ")[0],
+                    q1.split(" ")[0],
+                    q2.split(" ")[0],
+                    q3.split(" ")[0],
+                    q4.split(" ")[0],
+                    q5.split(" ")[0],
+                    q6.split(" ")[0],
+                    q7.split(" ")[0],
+                    q8.split(" ")[0],
+                    q9.split(" ")[0],
+                    q10.split(" ")[0],
                 ]
             };
 
@@ -174,7 +197,7 @@
                 alert("Please add a link for your photo.")
                 return
             }
-            for (var i = 0; i < newFriend.scores.length; i++){
+            for (var i = 0; i < newFriend.scores.length; i++) {
                 var tempIndex = i + 1;
                 if (newFriend.scores[i].length > 1) {
                     clean = false;
@@ -189,20 +212,41 @@
                 return
             }
             $.post("/api/friends", newFriend)
-            .then(function(data){
-                // console.log(data);
-                var friends = data;
-                for (var i = 0; i < friends.length; i++) {
-                    if (friends[i].name !== newFriend.name){
-                        for (var u = 0; u < friends[i].scores.length; u++) {
-                            var difference = []
-                            difference += abs(friends[i].scores[u] - newFriend.scores[u]);
-                            console.log(difference)
+                .then(function (data) {
+                    // console.log(data);
+                    var friends = data;
+                    for (var i = 0; i < friends.length; i++) {
+                        var score = [];
+                        if (friends[i].name !== newFriend.name) {
+                            for (var u = 0; u < friends[i].scores.length; u++) {
+                                var tempScore = friends[i].scores[u] - newFriend.scores[u];
+
+                                score.push(Math.abs(tempScore));
+                            }
+                            friends[i].score = eval(score.join('+'));
+                        }
+                    };
+                    var sorted = false;
+
+                    while (!sorted) {
+                        sorted = true;
+                        for (var i = 0; i < friends.length - 1; i++) {
+                            if (friends[i].score > friends[i + 1].score) {
+                                sorted = false;
+
+                                var temp = friends[i];
+                                friends[i] = friends[i + 1];
+                                friends[i + 1] = temp;
+                            }
                         }
                     }
-                }
-            })
+                    $("#friend-pic").attr("src", friends[0].photo)
+                    console.log(friends[0].photo)
+                    $(".modal-body").html("You matched with " + friends[0].name + "!")
+                    $("#friend-match").modal("show").on("shown.bs.modal")
+                })
         })
     </script>
 </body>
+
 </html>
