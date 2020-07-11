@@ -6,12 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <title>Friend Finder</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 </head>
+<style>
+    body {
+        background-image: url(./images/double-bubble-outline.png);
+        background-attachment: fixed;
+        font-family: 'Fredoka One', cursive;
+    }
+</style>
 
 <body>
     <h2 class="mt-3 ml-4">Survey Questions</h2>
@@ -28,7 +36,7 @@
         </div>
         <div class="question-section">
             <h3><b>Question 1</b></h3>
-            <p>You like dry humor</p>
+            <p>Dry humor is the best humor</p>
             <select class="form-control" id="q-1">
                 <option>Select One</option>
                 <option>1 (Strongly Disagree)</option>
@@ -48,7 +56,7 @@
                 <option>5 (Strongly Agree)</option>
             </select>
             <h3><b>Question 3</b></h3>
-            <p>You like dry humor</p>
+            <p>You are a lone wolf</p>
             <select class="form-control" id="q-3">
                 <option>Select One</option>
                 <option>1 (Strongly Disagree)</option>
@@ -58,7 +66,7 @@
                 <option>5 (Strongly Agree)</option>
             </select>
             <h3><b>Question 4</b></h3>
-            <p>You like dry humor</p>
+            <p>You work hard</p>
             <select class="form-control" id="q-4">
                 <option>Select One</option>
                 <option>1 (Strongly Disagree)</option>
@@ -68,7 +76,7 @@
                 <option>5 (Strongly Agree)</option>
             </select>
             <h3><b>Question 5</b></h3>
-            <p>You like dry humor</p>
+            <p>You play harder</p>
             <select class="form-control" id="q-5">
                 <option>Select One</option>
                 <option>1 (Strongly Disagree)</option>
@@ -78,7 +86,7 @@
                 <option>5 (Strongly Agree)</option>
             </select>
             <h3><b>Question 6</b></h3>
-            <p>You like dry humor</p>
+            <p>You are very lucky</p>
             <select class="form-control" id="q-6">
                 <option>Select One</option>
                 <option>1 (Strongly Disagree)</option>
@@ -88,7 +96,7 @@
                 <option>5 (Strongly Agree)</option>
             </select>
             <h3><b>Question 7</b></h3>
-            <p>You like dry humor</p>
+            <p>You like pizza</p>
             <select class="form-control" id="q-7">
                 <option>Select One</option>
                 <option>1 (Strongly Disagree)</option>
@@ -98,7 +106,7 @@
                 <option>5 (Strongly Agree)</option>
             </select>
             <h3><b>Question 8</b></h3>
-            <p>You like dry humor</p>
+            <p>You are a positive person</p>
             <select class="form-control" id="q-8">
                 <option>Select One</option>
                 <option>1 (Strongly Disagree)</option>
@@ -108,7 +116,7 @@
                 <option>5 (Strongly Agree)</option>
             </select>
             <h3><b>Question 9</b></h3>
-            <p>You like dry humor</p>
+            <p>You like parties</p>
             <select class="form-control" id="q-9">
                 <option>Select One</option>
                 <option>1 (Strongly Disagree)</option>
@@ -118,7 +126,7 @@
                 <option>5 (Strongly Agree)</option>
             </select>
             <h3><b>Question 10</b></h3>
-            <p>You like dry humor</p>
+            <p>You exercise regularly</p>
             <select class="form-control" id="q-10">
                 <option>Select One</option>
                 <option>1 (Strongly Disagree)</option>
@@ -128,7 +136,7 @@
                 <option>5 (Strongly Agree)</option>
             </select>
         </div>
-        <button type="button" class="btn btn-primary btn-lg mt-4" id="submit-button">Submit</button>
+        <button type="button" class="btn btn-primary btn-lg mt-4 mb-4" id="submit-button">Submit</button>
     </form>
 
     <div class="modal fade" id="friend-match" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -141,7 +149,8 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <img src="#" alt="friend-pic" id="friend-pic" class="img-fluid img-thumbnail" height="500px" width="500px">
+                <img src="#" alt="friend-pic" id="friend-pic" class="img-fluid img-thumbnail" height="500px"
+                    width="500px">
                 <div class="modal-body">
                 </div>
                 <div class="modal-footer">

@@ -5,12 +5,12 @@ module.exports = [
         "scores":[
             5,
             1,
-            4,
-            4,
             5,
             1,
-            2,
+            1,
+            1,
             5,
+            2,
             4,
             1
           ]
@@ -20,31 +20,31 @@ module.exports = [
         "photo":"https://theplaylist.net/wp-content/uploads/2020/03/Michael-scott-The-Office-Steve-Carell.jpg",
         "scores":[
             1,
-            4,
-            4,
-            3,
             5,
-            5,
+            4,
             2,
-            3,
-            4,
-            1
+            5,
+            5,
+            5,
+            5,
+            5,
+            2
           ]
       },
       {
         "name":"Will",
         "photo":"https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2016%2F01%2Fwill-forte-2.jpg&q=85",
         "scores":[
-            5,
-            5,
+            1,
+            1,
             3,
-            2,
+            1,
             5,
             4,
+            5,
             1,
             1,
-            4,
-            5
+            1
           ]
       },
       {
@@ -56,11 +56,11 @@ module.exports = [
             1,
             5,
             2,
-            4,
-            3,
-            6,
-            2,
-            3
+            5,
+            5,
+            5,
+            5,
+            4
           ]
       },
       {
@@ -69,14 +69,14 @@ module.exports = [
         "scores":[
             5,
             5,
+            1,
+            5,
+            3,
             5,
             5,
             5,
             5,
-            5,
-            5,
-            5,
-            5
+            3
           ]
       }
 ];
